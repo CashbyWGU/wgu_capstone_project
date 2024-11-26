@@ -41,9 +41,5 @@ cross_val_scores = cross_val_score(rf_model, X_scaled, y, cv=3, scoring='neg_mea
 print('Mean Cross-Validation MAE:', -cross_val_scores.mean())
 print('Cross-Validation MAE Std Dev:', cross_val_scores.std())
 
-# Feature importance
-feature_importance = pd.DataFrame(rf_model.feature_importances_, index=X.columns, columns=['Importance']).sort_values(by='Importance', ascending=False)
-print(feature_importance)
-
 # Save trained model
 joblib.dump(rf_model, 'random_forest_model.pkl')
